@@ -106,9 +106,6 @@ class Walker
      direction.normalize().mult(5); // mult determines movement speed of circles
      
      this.position.add(direction);
-     moveToDirection();
-          
-     computeDistance(target);
    }
 
   void moveToDirection()

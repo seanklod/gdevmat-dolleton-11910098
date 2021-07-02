@@ -1,7 +1,6 @@
 // global variables
 Walker[] walkers = new Walker[100];
 Walker blackHole = new Walker();
-Walker otherMatter = new Walker();
 
 boolean isDone = false;
 
@@ -53,6 +52,8 @@ void move()
   for (int i = 0; i < walkers.length; i++)
   {
      walkers[i].computeDirection(blackHole);
+     walkers[i].moveToDirection();
+     walkers[i].computeDistance(blackHole);
      
      if (walkers[i].isMoved == true) // continuously checks if an element has reached blackhole
      {
@@ -61,11 +62,10 @@ void move()
   }
   
   // sets isDone to true if all elements reached blackhole pos, used in reset()
-  if (doneIndexCounter == 100)
+  if (doneIndexCounter == walkers.length)
   {
     isDone = true;
   }
-  
 }
 
 void reset()
